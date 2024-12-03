@@ -16,6 +16,11 @@ def main():
         split_line = list(map(int, line.split()))
         if is_safe(split_line):
             safe_count += 1
+        else:
+            for i in range(len(split_line)):
+                if is_safe(split_line[:i] + split_line[i+1:]):
+                    safe_count += 1
+                    break
     print(f"Count of safe reports: {safe_count}")
 
 
